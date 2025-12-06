@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Smile, Wind, Meh, Frown, HeartPulse } from 'lucide-react';
-import { useEffect, useState } from 'react';
 
 type MoodOption = {
   mood: Mood;
@@ -35,18 +34,12 @@ export default function MoodLogger({
   selectedMood,
   onMoodSelect,
 }: MoodLoggerProps) {
-  const [dateString, setDateString] = useState('');
-
-  useEffect(() => {
-    setDateString(
-      new Date().toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })
-    );
-  }, []);
+  const dateString = new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
     <Card className="w-full shadow-lg">
