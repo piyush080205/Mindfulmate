@@ -5,13 +5,14 @@ import { Header } from '@/components/header';
 import ChatComponent from '@/components/chat';
 import MoodLogger from '@/components/mood-logger';
 import MindfulnessExercises from '@/components/mindfulness-exercises';
+import Faq from '@/components/faq';
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from '@/components/ui/tabs';
-import { Bot, HeartHandshake, BrainCircuit } from 'lucide-react';
+import { Bot, HeartHandshake, BrainCircuit, HelpCircle } from 'lucide-react';
 
 export type Mood = 'Happy' | 'Calm' | 'Neutral' | 'Sad' | 'Anxious' | 'None';
 
@@ -23,7 +24,7 @@ export default function Home() {
       <Header />
       <main className="flex-1 container mx-auto px-4 py-8">
         <Tabs defaultValue="chat" className="w-full max-w-4xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 mb-6 h-12 rounded-lg">
+          <TabsList className="grid w-full grid-cols-4 mb-6 h-12 rounded-lg">
             <TabsTrigger value="chat" className="h-full text-base gap-2">
               <Bot className="h-5 w-5" />
               Chat
@@ -39,6 +40,10 @@ export default function Home() {
               <BrainCircuit className="h-5 w-5" />
               Mindfulness
             </TabsTrigger>
+            <TabsTrigger value="faq" className="h-full text-base gap-2">
+              <HelpCircle className="h-5 w-5" />
+              FAQs
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="chat">
             <ChatComponent moodLog={moodLog} />
@@ -48,6 +53,9 @@ export default function Home() {
           </TabsContent>
           <TabsContent value="mindfulness">
             <MindfulnessExercises />
+          </TabsContent>
+          <TabsContent value="faq">
+            <Faq />
           </TabsContent>
         </Tabs>
       </main>
