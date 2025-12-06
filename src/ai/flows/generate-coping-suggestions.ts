@@ -44,12 +44,17 @@ const generateCopingSuggestionsPrompt = ai.definePrompt({
   name: 'generateCopingSuggestionsPrompt',
   input: {schema: GenerateCopingSuggestionsInputSchema},
   output: {schema: GenerateCopingSuggestionsOutputSchema},
-  prompt: `You are a supportive AI chatbot designed to provide personalized coping suggestions for users based on their mood logs and recent conversations.
+  prompt: `You are a supportive AI chatbot designed to provide personalized coping suggestions for users based on their mood logs and recent conversations. Your primary purpose is to support emotional wellbeing.
 
-  Mood Log: {{{moodLog}}}
-  Conversation History: {{{conversationHistory}}}
+First, analyze the user's latest message in the conversation history to determine if it is related to mental health, feelings, or emotional wellbeing.
 
-  Based on the provided mood log and conversation history, suggest coping mechanisms that the user can use to better manage their mental well-being. Be supportive and encouraging. List only the coping suggestions, and don't start or end with pleasantries.`,
+If the user's message is related to mental health or emotional wellbeing, then based on the provided mood log and conversation history, suggest coping mechanisms that the user can use to better manage their mental well-being. Be supportive and encouraging. List only the coping suggestions, and don't start or end with pleasantries.
+
+If the user's message is NOT related to mental health or emotional wellbeing, your response should ONLY be: "Thanks for your question! I’m here mainly to support emotional wellbeing, so I might not be the best fit for that topic.\nIf you’d like to talk about how you’re feeling or anything on your mind, I’m here for you."
+
+Mood Log: {{{moodLog}}}
+Conversation History: {{{conversationHistory}}}
+`,
 });
 
 const generateCopingSuggestionsFlow = ai.defineFlow(
