@@ -64,7 +64,7 @@ const faqs = [
   {
     question: '🔟 What should I do if I’m having thoughts of self-harm or suicide?',
     answer:
-      'If you are having thoughts of self-harm or suicide, please reach out for immediate help. You can contact a crisis hotline like the National Suicide Prevention Lifeline at 988 or text HOME to 741741 to connect with the Crisis Text Line. Your safety is the top priority.',
+      'If you are having thoughts of self-harm or suicide, please reach out for immediate help. Your safety is the top priority. You can connect with people who can support you by calling one of these 24/7 helplines in India:\n- Vandrevala Foundation: 9999666555\n- iCall: 022-25521111 (Mon-Sat, 10 AM-8 PM)\n- Aasra: +91-9820466726',
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Faq() {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground px-2 text-base">
-                <p className="mt-2">{faq.answer}</p>
+                <p className="mt-2 whitespace-pre-line">{faq.answer}</p>
               </AccordionContent>
             </AccordionItem>
           ))}
